@@ -4,6 +4,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 TASK :
 1. Create Next app
+2. clean component and add own fonts from google
 
 
 
@@ -29,6 +30,9 @@ Would you like to use App Router? (recommended) Yes
 Would you like to customize the default import alias (@/*)?  Yes
 What import alias would you like configured? @/* Yes
 ```
+
+2. Add own fonts from google into app/layout.tsx:-
+
 
 
 
