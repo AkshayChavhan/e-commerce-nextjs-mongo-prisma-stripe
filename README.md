@@ -4,8 +4,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 TASK :
 1. Create Next app
-2. clean component and add own fonts from google
-
+2. Clean component and add own fonts from google
+3. Create Header and Footer ,Organised it.
 
 
 
@@ -33,6 +33,7 @@ What import alias would you like configured? @/* Yes
 
 2. Add own fonts from google into app/layout.tsx:-
 
+3. Create Header and Footer ,Organised it :-
 
 
 
