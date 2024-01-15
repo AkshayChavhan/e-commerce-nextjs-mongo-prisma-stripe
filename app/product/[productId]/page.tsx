@@ -13,7 +13,6 @@ type Props = {
 
 function Product({ params }: Props) {
     const { productId } = params;
-    console.log('productId => ',productId)
     return (
         <div>
             <Container>

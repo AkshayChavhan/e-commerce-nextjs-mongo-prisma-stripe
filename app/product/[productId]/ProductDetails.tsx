@@ -1,8 +1,9 @@
 'use client'
 import SetColor from '@/app/components/products/SetColor'
 import SetQuantity from '@/app/components/products/SetQuantity'
-import Button from '@/app/components/products/button'
+import Button from '@/app/components/products/Button'
 import React, { useCallback, useState } from 'react'
+import ProductImage from '@/app/components/products/ProductImage'
 
 type Props = {
     product: any
@@ -74,9 +75,10 @@ const ProductDetails = ({ product }: Props) => {
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>
-            <div>
-                Images
-            </div>
+            <ProductImage 
+            cartProduct={cartProduct}
+            product={product}
+            handleColorSelect={handColorSelect}/>
             <div
                 className='flex flex-col gap-1 text-slate-500 text-sm'>
                 <h2
