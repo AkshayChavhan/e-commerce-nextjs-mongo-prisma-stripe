@@ -1,6 +1,7 @@
 'use client'
 import SetColor from '@/app/components/products/SetColor'
 import SetQuantity from '@/app/components/products/SetQuantity'
+import Button from '@/app/components/products/button'
 import React, { useCallback, useState } from 'react'
 
 type Props = {
@@ -114,7 +115,12 @@ const ProductDetails = ({ product }: Props) => {
                     handleQtyIncrease={handleQtyIncrease}
                 />
                 <Horizontal />
-                <div>add to cart</div>
+                <div className='max-w-[300px]'>
+                    <Button 
+                    label='Add to Cart'
+                    onClick={()=>{}}
+                    />
+                </div>
             </div>
         </div>
     )
