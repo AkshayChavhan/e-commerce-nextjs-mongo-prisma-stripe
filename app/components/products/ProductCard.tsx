@@ -1,6 +1,8 @@
+'use client'
 import formatPrice from '@/utils/formatPrice'
 import { TruncateText } from '@/utils/truncateText'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation';
 import React from 'react'
 
 type Props = {
@@ -8,15 +10,21 @@ type Props = {
 }
 
 function ProductCard({ data }: Props) {
-    console.clear();
-    console.log(data);
+
+    const router = useRouter()
 
     const productRating = data.reviews.reduce((acc:number,item:any) => {
         return acc + item.rating;
     },0)/data.reviews.length;
 
     return (
-        <div className='col-span-1
+        <div 
+        onClick={()=> {
+            console.clear();
+            console.log('clicked')
+            router.push(`/product/${data.id}`)
+        }}
+        className='col-span-1
         cursor-pointer
         border-[1.2px]
         border-slate-200
@@ -26,8 +34,15 @@ function ProductCard({ data }: Props) {
         transition
         hover:scale-105
         text-center
-        text-sm'>
-            <div className='
+        text-sm'
+        >
+            <div 
+            onClick={()=> {
+                console.clear();
+                console.log('clicked2')
+                router.push(`/product/${data.id}`)
+            }}
+            className='
             flex
             flex-col
             items-center
@@ -44,7 +59,7 @@ function ProductCard({ data }: Props) {
                 <div className='mt-4'>{TruncateText(data.name)}</div>
                 <div>{productRating}</div>
                 <div>{data.reviews.length} reviews</div>
-                <div className='font-semibold'>{formatPrice(data.price)}</div>
+                {/* <div className='font-semibold'>{formatPrice(data.price)}</div> */}
             </div>
         </div>
     )
