@@ -3,6 +3,7 @@ import HomeBanner from './components/HomeBanner'
 import Container from './components/Container'
 import { products } from '@/utils/products'
 import { TruncateText } from '@/utils/truncateText'
+import ProductCard from './components/products/ProductCard'
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
         2xl:grid-cols-6 gap-8'>
           {
             products.map((product: any) => {
-              return <div>{TruncateText(product.name)}</div>
+              return <div><ProductCard data={product} /></div>
             })
           }
         </div>
