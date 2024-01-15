@@ -1,4 +1,7 @@
+import Container from '@/app/components/Container';
 import React from 'react'
+import ProductDetails from './ProductDetails';
+import { product } from '@/utils/product';
 
 type Params = {
     productId?: string;
@@ -12,7 +15,11 @@ function Product({ params }: Props) {
     const { productId } = params;
     console.log('productId => ',productId)
     return (
-        <div>Product Page</div>
+        <div>
+            <Container>
+                <ProductDetails product={product}/>
+            </Container>
+        </div>
     )
 }
 
