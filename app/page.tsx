@@ -18,8 +18,8 @@ export default function Home() {
         xl:grid-cols-5
         2xl:grid-cols-6 gap-8'>
           {
-            products.map((product: any) => {
-              return <div><ProductCard data={product} /></div>
+            products.map((product: any , index:number) => {
+              return <div key={index}><ProductCard data={product} /></div>
             })
           }
         </div>

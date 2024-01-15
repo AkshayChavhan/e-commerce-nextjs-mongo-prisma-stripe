@@ -12,19 +12,16 @@ type Props = {
 function ProductCard({ data }: Props) {
 
     const router = useRouter()
-
-    const productRating = data.reviews.reduce((acc:number,item:any) => {
+    const productRating = data.reviews.reduce((acc: number, item: any) => {
         return acc + item.rating;
-    },0)/data.reviews.length;
+    }, 0) / data.reviews.length;
 
     return (
-        <div 
-        onClick={()=> {
-            console.clear();
-            console.log('clicked')
-            router.push(`/product/${data.id}`)
-        }}
-        className='col-span-1
+        <div
+            onClick={() => {
+                router.push(`/product/${data.id}`)
+            }}
+            className='col-span-1
         cursor-pointer
         border-[1.2px]
         border-slate-200
@@ -36,13 +33,8 @@ function ProductCard({ data }: Props) {
         text-center
         text-sm'
         >
-            <div 
-            onClick={()=> {
-                console.clear();
-                console.log('clicked2')
-                router.push(`/product/${data.id}`)
-            }}
-            className='
+            <div
+                className='
             flex
             flex-col
             items-center
@@ -59,7 +51,7 @@ function ProductCard({ data }: Props) {
                 <div className='mt-4'>{TruncateText(data.name)}</div>
                 <div>{productRating}</div>
                 <div>{data.reviews.length} reviews</div>
-                {/* <div className='font-semibold'>{formatPrice(data.price)}</div> */}
+                <div className='font-semibold'>{formatPrice(data.price)}</div>
             </div>
         </div>
     )
