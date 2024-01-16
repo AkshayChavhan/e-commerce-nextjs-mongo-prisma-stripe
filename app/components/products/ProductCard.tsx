@@ -10,9 +10,8 @@ type Props = {
 }
 
 function ProductCard({ data }: Props) {
-
     const router = useRouter()
-    const productRating = data.reviews.reduce((acc: number, item: any) => {
+    const productRating = (data?.reviews.length === 0) ? 0 : data.reviews.reduce((acc: number, item: any) => {
         return acc + item.rating;
     }, 0) / data.reviews.length;
 
@@ -51,7 +50,7 @@ function ProductCard({ data }: Props) {
                 <div className='mt-4'>{TruncateText(data.name)}</div>
                 <div>{productRating}</div>
                 <div>{data.reviews.length} reviews</div>
-                <div className='font-semibold'>{formatPrice(data.price)}</div>
+                <div className='font-semibold'>$ {data.price}</div>
             </div>
         </div>
     )
