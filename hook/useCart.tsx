@@ -1,29 +1,48 @@
-import React, { createContext, useContext, useState } from 'react'
+import { CartProductType } from '@/app/product/[productId]/ProductDetails';
+import { createContext, useCallback, useContext, useState } from 'react'
 
 type CartContextType = {
-    cartTotalQty : number
+    cartTotalQty: number;
+    cartProducts: CartProductType[] | null;
+    handleAddProductToCart: (product: CartProductType) => void;
 }
 
-export const CartContext =  createContext<CartContextType | null>(null)
+export const CartContext = createContext<CartContextType | null>(null)
 
 
 interface Props {
-    [propName:string] :any
+    [propName: string]: any
 }
 
 export const CartContextProvider = (props: Props) => {
 
-    const [cartTotalQty ,setCartTotalQty] = useState(0);
+    const [cartTotalQty, setCartTotalQty] = useState(0);
+    const [cartProducts, setCartProducts] = useState<CartProductType[] | null>(null);
+
+    const handleAddProductToCart = useCallback((product: CartProductType) => {
+        setCartProducts((prevState) => {
+            let updatedCart;
+            if (prevState) {
+                updatedCart = [...prevState, product]
+            } else {
+                updatedCart = [product]
+            }
+            return updatedCart;
+        })
+    }, [])
+
     const value = {
-        cartTotalQty
+        cartTotalQty,
+        cartProducts,
+        handleAddProductToCart
     }
 
-    return <CartContext.Provider value={value} {...props}/>
+    return <CartContext.Provider value={value} {...props} />
 }
-export const useCart = () =>{
+export const useCart = () => {
     const context = useContext(CartContext);
 
-    if(context === null){
+    if (context === null) {
         throw new Error("useCart must be used within a CartContextProvider")
     }
 
