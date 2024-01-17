@@ -4,6 +4,7 @@ import SetQuantity from '@/app/components/products/SetQuantity'
 import Button from '@/app/components/products/Button'
 import React, { useCallback, useState } from 'react'
 import ProductImage from '@/app/components/products/ProductImage'
+import { useCart } from '@/hook/useCart'
 
 type Props = {
     product: any
@@ -32,6 +33,8 @@ const Horizontal = () => {
 
 const ProductDetails = ({ product }: Props) => {
 
+    const { cartTotalQty } =  useCart()
+    console.log('cartTotalQty => ', cartTotalQty);
     const [cartProduct, setCartProduct] = useState<CartProductType>({
         id: product.id,
         name: product.name,
